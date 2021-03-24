@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  webservices:
+    build: web-services
+    environment:
+      DJANGO_SECRET_KEY: NotASecret
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./web-services:/usr/src/app

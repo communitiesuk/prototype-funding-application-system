@@ -10,11 +10,11 @@ the time of any one commit this list should represent the current expectations.
 
 Once completed the checkbox next to the item will be checked.
 
-- [ ] Applicant: I can submit a vanilla application and see it in a list
+- [ ] Applicant: I can choose a Fund then submit a vanilla application and see it in a list
 
 - [ ] Compliance Reviewer: I can see a list of applications
 
-- [ ] Funding Delivery Designer: I can declare different types of Application which the Applicant must choose (just a title); existing ones default to something
+- [x] Funding Delivery Designer: I can declare different types of Application (just a title)
 
 - [ ] Funding Delivery Designer: I can write some helpful short description of the Application type which the Applicant sees in the choices
 

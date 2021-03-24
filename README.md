@@ -46,3 +46,69 @@ The features of this prototype are listed and managed during development in the
 
 The technical design and decisions are detailed in the [Technical Architecture](docs/technical-architecture.md)
 document.
+
+## Working with the project
+
+To work with this project the only install you need is the most recent
+version of [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
+### Set up the project
+
+#### Build
+
+Given that you have Docker installed OK, build the project like this:
+```shell script
+$ docker-compose build
+```
+
+This is a one-off step although you will have to repeat it if you fundamentally
+change the project, e.g. alter the Python package requirements.
+
+#### Prepare the database
+
+If you're going to run the dev server and interact you will need a database set up locally to enable this.
+Set up the database as follows:
+
+```shell script
+$ docker-compose run webservices ./manage.py migrate
+```
+
+If you change the database structure you'll need to prepare migrations and rerun that previous step like this:
+
+```shell script
+$ docker-compose run webservices ./manage.py makemigrations
+$ docker-compose run webservices ./manage.py migrate
+```
+
+See the [Django migration docs](https://docs.djangoproject.com/en/3.1/topics/migrations/) for more detail.
+
+#### Creating a superuser
+
+Because we have elected to leverage the Django Admin interface for the role of the Funding Delivery Designer, you
+will need to set up a "superuser" so that Django will allow you access to the Admin interface.
+
+Do it like this:
+
+```shell script
+$ docker-compose run webservices ./manage.py createsuperuser
+```
+and follow the instructions (it is a very short process).
+
+The project is now ready.
+
+### Start the dev server
+
+```shell script
+$ docker-compose up
+```
+
+This will start all the services.
+
+### Interact!
+
+Currently you can view the system from two angles, acting as one of two roles:
+
+If you want to be a Funding Delivery Designer, go here: <http://localhost:8000/admin/funds_service/fund/>.
+
+If you want to be an API client consuming the Funds Service, go here:
+<http://localhost:8000/funds_service/api/funds/>
