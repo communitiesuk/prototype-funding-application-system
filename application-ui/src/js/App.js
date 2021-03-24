@@ -17,7 +17,7 @@ const App = () => {
 
       <h2>List of Funds</h2>
       <ul>
-        {funds.map((fund, idx) => <li id={idx}>{fund.name}</li>)}
+        {funds.map((fund, idx) => <li key={idx}>{fund.name}</li>)}
       </ul>
     </>
   )
