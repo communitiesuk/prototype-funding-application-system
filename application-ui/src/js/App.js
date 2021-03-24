@@ -6,6 +6,8 @@ const App = () => {
   const [applications, setApplications] = useState([])
   const [funds, setFunds] = useState([])
 
+  const getFund = ({fund}) => funds.find((el) => el.url == fund) || {}
+
   const submitNewApplication = ({url}) => {
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
@@ -46,7 +48,9 @@ const App = () => {
 
       <h2>List of Applications</h2>
       <ul>
-        {applications.map((application, idx) => <li key={idx}>{application.submitted_at}</li>)}
+        {applications.map((application, idx) => (
+          <li key={idx}>{getFund(application).name}, submitted at {application.submitted_at}</li>)
+        )}
       </ul>
     </>
   )
