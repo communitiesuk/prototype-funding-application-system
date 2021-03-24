@@ -12,7 +12,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: I can create a (stub) application by clicking a button and see it in a list
 
-- [ ] Applicant: I can choose a Fund then submit a vanilla application with one click and see it in a list
+- [x] Applicant: I can choose a Fund then submit a vanilla application with one click and see it in a list
 
 - [ ] Applicant: Uses a form to give an application a title
 

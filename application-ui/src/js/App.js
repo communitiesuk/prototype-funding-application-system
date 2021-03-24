@@ -6,10 +6,12 @@ const App = () => {
   const [applications, setApplications] = useState([])
   const [funds, setFunds] = useState([])
 
-  const submitNewApplication = () => {
+  const submitNewApplication = ({url}) => {
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
-      {})
+      {
+        fund: url,
+      })
       .then(({data}) => {
         appendApplication(data)
       })
@@ -34,14 +36,18 @@ const App = () => {
 
       <h2>List of Funds</h2>
       <ul>
-        {funds.map((fund, idx) => <li key={idx}>{fund.name}</li>)}
+        {funds.map((fund, idx) => (
+          <li key={idx}>
+            {fund.name}
+            <button onClick={() => submitNewApplication(fund)}>Submit a new empty Application</button>
+          </li>)
+        )}
       </ul>
 
       <h2>List of Applications</h2>
       <ul>
         {applications.map((application, idx) => <li key={idx}>{application.submitted_at}</li>)}
       </ul>
-      <button onClick={submitNewApplication}>Submit a new empty Application</button>
     </>
   )
 }
