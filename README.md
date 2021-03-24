@@ -129,4 +129,10 @@ If you want to be a Fund Applicant, go here: <http://localhost:8080>.
 #### API Client
 
 Not terribly useful for demo purposes but if you want a closer look at the APIs themselves then go to:
-<http://localhost:8000/funds_service/api/funds/>.
+
+* Applications Service API <http://localhost:8000/applications_service/api/applications/>
+
+* Funds Service API <http://localhost:8000/funds_service/api/funds/>
+
+Django REST framework helpfully detects your User-Agent type as a browser and wraps the API output in a
+human-friendly layout. You could instead of course use cUrl or Postman etc.

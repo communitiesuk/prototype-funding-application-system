@@ -10,7 +10,11 @@ the time of any one commit this list should represent the current expectations.
 
 Once completed the checkbox next to the item will be checked.
 
-- [ ] Applicant: I can choose a Fund then submit a vanilla application and see it in a list
+- [x] Applicant: I can create a (stub) application by clicking a button and see it in a list
+
+- [ ] Applicant: I can choose a Fund then submit a vanilla application with one click and see it in a list
+
+- [ ] Applicant: Uses a form to give an application a title
 
 - [ ] Compliance Reviewer: I can see a list of applications
 
@@ -23,6 +27,8 @@ Once completed the checkbox next to the item will be checked.
 - [ ] Compliance Reviewer: I see a breakdown of Applications by type
 
 - [ ] Funding Delivery Designer: I can pick from 3 types of Building Block for each “application type”; Applicant sees these in form
+
+- [ ] Applicant can (must) submit the extra form sections
 
 - [ ] Funding Delivery Designer: I can edit Guidance Notes
 
