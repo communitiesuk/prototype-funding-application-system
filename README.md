@@ -54,7 +54,7 @@ version of [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 ### Set up the project
 
-#### Build
+#### Build Docker containers
 
 Given that you have Docker installed OK, build the project like this:
 ```shell script
@@ -63,6 +63,16 @@ $ docker-compose build
 
 This is a one-off step although you will have to repeat it if you fundamentally
 change the project, e.g. alter the Python package requirements.
+
+#### Install front-end (npm) packages
+
+For Docker reasons you _must_ install npm packages through the Docker Compose service. Do not install them
+natively on your host. For reasons see [this Docker blog post](https://www.docker.com/blog/keep-nodejs-rockin-in-docker/).
+
+Install npm packages like this:
+```shell script
+docker-compose run applicationui npm install
+```
 
 #### Prepare the database
 
@@ -106,9 +116,17 @@ This will start all the services.
 
 ### Interact!
 
-Currently you can view the system from two angles, acting as one of two roles:
+You can interact with this system from a number of viewpoints:
+
+#### Funding Delivery Designer
 
 If you want to be a Funding Delivery Designer, go here: <http://localhost:8000/admin/funds_service/fund/>.
 
-If you want to be an API client consuming the Funds Service, go here:
-<http://localhost:8000/funds_service/api/funds/>
+#### Fund Applicant
+
+If you want to be a Fund Applicant, go here: <http://localhost:8080>.
+
+#### API Client
+
+Not terribly useful for demo purposes but if you want a closer look at the APIs themselves then go to:
+<http://localhost:8000/funds_service/api/funds/>.
