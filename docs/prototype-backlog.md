@@ -14,9 +14,9 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: I can choose a Fund then submit a vanilla application with one click and see it in a list
 
-- [ ] Applicant: Uses a form to give an application a title
+- [x] Applicant: Uses a form to give an application a title
 
-- [ ] Compliance Reviewer: I can see a list of applications
+- [ ] Compliance Reviewer: I can see a list of applications, their titles, funds and submission dates
 
 - [x] Funding Delivery Designer: I can declare different types of Application (just a title)
 
