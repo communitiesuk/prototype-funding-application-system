@@ -53,6 +53,7 @@ const App = () => {
         {funds.map((fund, idx) => (
           <tr key={idx}>
             <td>{fund.name}</td>
+            <td>{fund.short_description}</td>
             <td>
               <button onClick={() => setFundApplyingFor(fund)}>Start</button>
             </td>

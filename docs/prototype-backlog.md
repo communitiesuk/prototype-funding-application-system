@@ -22,7 +22,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: I must choose the fund before I can complete the form (and I see the Fund in the form heading)
 
-- [ ] Funding Delivery Designer: I can write some helpful short description of the Application type which the Applicant sees in the choices
+- [x] Funding Delivery Designer: I can write some helpful short description of the Application type which the Applicant sees in the choices
 
 - [ ] Applicant: I can search for the right Form using the longform description provided by the Funding Delivery Designer
 
