@@ -2,28 +2,13 @@ import React, {useEffect, useState} from 'react'
 
 import axios from 'axios'
 
-const ApplicationForm = ({fund, handleSubmission}) => {
-  return (
-    <>
-      <h3>Step Two: Complete application form</h3>
-      <form onSubmit={(e) => handleSubmission(e, fund)}>
-        <h3>Fund:</h3>
-        {fund.name}
-        <label>Application Title</label>
-        <input name="title"/>
-        <input type="submit" value="Submit Application"/>
-      </form>
-    </>
-  )
-}
+import {ApplicationForm} from "./ApplicationForm";
+import {ApplicationsList} from "./ApplicationsList";
 
 const App = () => {
   const [applications, setApplications] = useState([])
   const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
-
-  const getFundFromUrl = (fundUrl) => funds.find((el) => el.url == fundUrl) || {}
-
   const submitNewApplication = (fundUrl, title) => {
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
@@ -56,7 +41,6 @@ const App = () => {
     })
   }, [])
 
-  // TODO Refactor this
   return (
     <>
       <h1>Prototype Funding Application System</h1>
@@ -86,12 +70,7 @@ const App = () => {
       </table>
       {fundApplyingFor ? <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
 
-      <h2>List of Applications</h2>
-      <ul>
-        {applications.map((application, idx) => (
-          <li key={idx}>{application.title} ({getFundFromUrl(application.fund).name}), submitted at {application.submitted_at}</li>)
-        )}
-      </ul>
+      <ApplicationsList applications={applications} funds={funds}/>
     </>
   )
 }
