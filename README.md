@@ -126,6 +126,10 @@ If you want to be a Funding Delivery Designer, go here: <http://localhost:8000/a
 
 If you want to be a Fund Applicant, go here: <http://localhost:8080>.
 
+#### Compliance Reviewer
+
+If you want to be a Compliance Reviewer, go here: <http://localhost:8000/applications_service/dashboards/applications/>.
+
 #### API Client
 
 Not terribly useful for demo purposes but if you want a closer look at the APIs themselves then go to:

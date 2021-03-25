@@ -16,7 +16,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: Uses a form to give an application a title
 
-- [ ] Compliance Reviewer: I can see a list of applications, their titles, funds and submission dates
+- [x] Compliance Reviewer: I can see a list of applications, their titles, funds and submission dates
 
 - [x] Funding Delivery Designer: I can declare different types of Application (just a title)
 
@@ -27,6 +27,8 @@ Once completed the checkbox next to the item will be checked.
 - [ ] Compliance Reviewer: I see a breakdown of Applications by type
 
 - [ ] Funding Delivery Designer: I can pick from 3 types of Building Block for each “application type”; Applicant sees these in form
+
+- [ ] Add "region" to application (N/S/E/W only)  - Show regions and "No Region" rollup
 
 - [ ] Applicant can (must) submit the extra form sections
 

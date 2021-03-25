@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Prototype Funding Application System</title>
+  <style>
+    td {
+      padding: 6px 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>Prototype Funding Application System</h1>
+<h2>Applications Dashboard</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Application</th>
+    <th>Fund</th>
+    <th>Submitted</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for application in applications %}
+  <tr>
+    <td>{{application.title}}</td>
+    <td>{{application.fund.name}}</td>
+    <td>{{application.submitted_at|date:"d/m/Y H:i"}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>
