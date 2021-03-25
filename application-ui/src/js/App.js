@@ -2,8 +2,24 @@ import React, {useEffect, useState} from 'react'
 
 import axios from 'axios'
 
+const ApplicationForm = ({fund, handleSubmission}) => {
+  return (
+    <>
+      <h3>Step Two: Complete application form</h3>
+      <form onSubmit={(e) => handleSubmission(e, fund)}>
+        <h3>Fund:</h3>
+        {fund.name}
+        <label>Application Title</label>
+        <input name="title"/>
+        <input type="submit" value="Submit Application"/>
+      </form>
+    </>
+  )
+}
+
 const App = () => {
   const [applications, setApplications] = useState([])
+  const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
 
   const getFundFromUrl = (fundUrl) => funds.find((el) => el.url == fundUrl) || {}
@@ -23,12 +39,11 @@ const App = () => {
     setApplications([newApplication].concat(applications))
   }
 
-  const handleApplicationFormSubmission = (e) => {
+  const handleApplicationFormSubmission = (e, fund) => {
     e.preventDefault()
     const form = e.target
-    const fundUrl = form.fund.selectedOptions[0].value
     const title = form.title.value
-    submitNewApplication(fundUrl, title)
+    submitNewApplication(fund.url, title)
   }
 
   useEffect(() => {
@@ -56,17 +71,20 @@ const App = () => {
       </ul>
 
       <h2>Submit a new Application</h2>
-      <form onSubmit={handleApplicationFormSubmission}>
-        <label>Select the Fund:</label>
-        <select name="fund">
-          {funds.map((fund, idx) => (
-            <option key={idx} value={fund.url}>{fund.name}</option>
-          ))}
-        </select>
-        <label>Application Title</label>
-        <input name="title" />
-        <input type="submit" value="Submit Application" />
-      </form>
+      <h3>Step One: Select appropriate Fund</h3>
+      <table>
+        <tbody>
+        {funds.map((fund, idx) => (
+          <tr key={idx}>
+            <td>{fund.name}</td>
+            <td>
+              <button onClick={() => setFundApplyingFor(fund)}>Start</button>
+            </td>
+          </tr>
+        ))}
+        </tbody>
+      </table>
+      {fundApplyingFor ? <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
 
       <h2>List of Applications</h2>
       <ul>
