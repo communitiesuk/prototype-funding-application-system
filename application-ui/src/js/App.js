@@ -16,12 +16,11 @@ const App = () => {
         title,
       })
       .then(({data}) => {
-        appendApplication(data)
+        addApplication(data)
       })
   }
-  // TODO New application should appear at top of list!
-  const appendApplication = (newApplication) => {
-    setApplications(applications.concat(newApplication))
+  const addApplication = (newApplication) => {
+    setApplications([newApplication].concat(applications))
   }
 
   const handleApplicationFormSubmission = (e) => {
