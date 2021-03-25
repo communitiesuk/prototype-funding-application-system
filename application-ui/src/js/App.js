@@ -35,21 +35,12 @@ const App = () => {
     const countableCommitments = []
     const summableCommitments = []
     for (let elementName in form.elements) {
-      // TODO Refactor this
-      const matchCountable = elementName.match(/countable_(\d+)/)
-      if (matchCountable) {
+      const match = elementName.match(/(count|summ)able_(\d+)/)
+      if (match) {
         const value = form.elements[elementName].value
-        countableCommitments.push({
-          criterion: matchCountable[1],
-          committed_quantity: value
-        })
-        continue
-      }
-      const matchSummable = elementName.match(/summable_(\d+)/)
-      if (matchSummable) {
-        const value = form.elements[elementName].value
-        summableCommitments.push({
-          criterion: matchSummable[1],
+        const commitmentArray = match[1] === "count" ? countableCommitments : summableCommitments
+        commitmentArray.push({
+          criterion: match[2],
           committed_quantity: value
         })
       }
