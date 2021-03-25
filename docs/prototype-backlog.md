@@ -32,11 +32,11 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: sees the resulting Countable fields on the form as Commitments and may submit these
 
-- [ ] Applicant: sees the resulting Summable fields on the form as Commitments and may submit these
+- [x] Applicant: sees the resulting Summable fields on the form as Commitments and may submit these
 
 - [x] Compliance Reviewer: sees the supplied Countable Commitments in the Dashboard
 
-- [ ] Compliance Reviewer: sees the supplied Summable Commitments in the Dashboard
+- [x] Compliance Reviewer: sees the supplied Summable Commitments in the Dashboard
 
 - [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
 

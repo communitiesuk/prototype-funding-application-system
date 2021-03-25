@@ -1,6 +1,6 @@
 from django.db import models
 
-from funds_service.models import CountableCriterion, Fund
+from funds_service.models import CountableCriterion, Fund, SummableCriterion
 
 
 class Application(models.Model):
@@ -21,6 +21,18 @@ class CountableCommitment(models.Model):
     )
     criterion = models.ForeignKey(
         CountableCriterion,
+        on_delete=models.CASCADE,
+        related_name="application_commitments",
+    )
+    committed_quantity = models.FloatField()
+
+
+class SummableCommitment(models.Model):
+    application = models.ForeignKey(
+        Application, on_delete=models.CASCADE, related_name="summable_commitments"
+    )
+    criterion = models.ForeignKey(
+        SummableCriterion,
         on_delete=models.CASCADE,
         related_name="application_commitments",
     )

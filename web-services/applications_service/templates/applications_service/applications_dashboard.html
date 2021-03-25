@@ -5,6 +5,10 @@
     td {
       padding: 6px 10px;
     }
+    .total {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
@@ -14,6 +18,9 @@
 <ul>
 {% for countable in countables_summary %}
   <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
+{% endfor %}
+{% for summable in summables_summary %}
+  <li>{{summable.label}}: <span class="total">{{summable.total|floatformat:"0"}}</span> {{summable.unit}}</li>
 {% endfor %}
 </ul>
 
