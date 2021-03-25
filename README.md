@@ -54,7 +54,9 @@ version of [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 ### Set up the project
 
-#### Build Docker containers
+You must complete ALL these steps in the stated order.
+
+#### 1. Build Docker containers
 
 Given that you have Docker installed OK, build the project like this:
 ```shell script
@@ -64,7 +66,7 @@ $ docker-compose build
 This is a one-off step although you will have to repeat it if you fundamentally
 change the project, e.g. alter the Python package requirements.
 
-#### Install front-end (npm) packages
+#### 2. Install front-end (npm) packages
 
 For Docker reasons you _must_ install npm packages through the Docker Compose service. Do not install them
 natively on your host. For reasons see [this Docker blog post](https://www.docker.com/blog/keep-nodejs-rockin-in-docker/).
@@ -74,7 +76,7 @@ Install npm packages like this:
 docker-compose run applicationui npm install
 ```
 
-#### Prepare the database
+#### 3. Prepare the database
 
 If you're going to run the dev server and interact you will need a database set up locally to enable this.
 Set up the database as follows:
@@ -92,7 +94,7 @@ $ docker-compose run webservices ./manage.py migrate
 
 See the [Django migration docs](https://docs.djangoproject.com/en/3.1/topics/migrations/) for more detail.
 
-#### Creating a superuser
+#### 4. Create a superuser
 
 Because we have elected to leverage the Django Admin interface for the role of the Funding Delivery Designer, you
 will need to set up a "superuser" so that Django will allow you access to the Admin interface.
