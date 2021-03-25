@@ -10,6 +10,17 @@ export const ApplicationForm = ({fund, handleSubmission}) => {
         <label>Application Title</label>
         <input name="title"/>
         <input type="submit" value="Submit Application"/>
+        <h3>Commitments</h3>
+        {fund.countable_criteria.map((crit) => (
+          <div key={crit.id}>
+            <label>{crit.label}</label>: <input name={`countable_${crit.id}`} />
+          </div>
+        ))}
+        {fund.summable_criteria.map((crit) => (
+          <div key={crit.id}>
+            <label>{crit.label}</label>: <input name={`summable_${crit.id}`} /><span>{crit.unit}</span>
+          </div>
+        ))}
       </form>
     </>
   )

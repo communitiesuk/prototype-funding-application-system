@@ -9,11 +9,12 @@ const App = () => {
   const [applications, setApplications] = useState([])
   const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
-  const submitNewApplication = (fundUrl, title) => {
+  const submitNewApplication = (fundUrl, title, countableCommitments) => {
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
       {
         fund: fundUrl,
+        countable_commitments: countableCommitments,
         title,
       })
       .then(({data}) => {
@@ -28,7 +29,20 @@ const App = () => {
     e.preventDefault()
     const form = e.target
     const title = form.title.value
-    submitNewApplication(fund.url, title)
+
+    const countableCommitments = []
+    for (let elementName in form.elements) {
+      const match = elementName.match(/countable_(\d+)/)
+      if (match) {
+        const value = form.elements[elementName].value
+        countableCommitments.push({
+          criterion: match[1],
+          committed_quantity: value
+        })
+        console.log('countableCommitments', countableCommitments)
+      }
+    }
+    submitNewApplication(fund.url, title, countableCommitments)
     setFundApplyingFor(null)
   }
 
@@ -61,7 +75,8 @@ const App = () => {
         ))}
         </tbody>
       </table>
-      {fundApplyingFor ? <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
+      {fundApplyingFor ?
+        <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
 
       <ApplicationsList applications={applications} funds={funds}/>
     </>

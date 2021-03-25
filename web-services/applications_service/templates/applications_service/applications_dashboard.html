@@ -10,6 +10,14 @@
 <body>
 <h1>Prototype Funding Application System</h1>
 <h2>Applications Dashboard</h2>
+<h3>Summary of Commitments</h3>
+<ul>
+{% for countable in countables_summary %}
+  <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
+{% endfor %}
+</ul>
+
+<h3>List of Applications</h3>
 <table>
   <thead>
   <tr>

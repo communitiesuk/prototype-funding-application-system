@@ -26,25 +26,23 @@ Once completed the checkbox next to the item will be checked.
 
 - [ ] Applicant: I can search for the right Form using the longform description provided by the Funding Delivery Designer
 
-- [ ] Compliance Reviewer: I see a breakdown of Applications by type
+- [ ] Compliance Reviewer: I see a breakdown of Applications by Fund (with commitments)
 
 - [x] Funding Delivery Designer: I can pick from 2 types of Criteria for each Fund; reflected in Funds JSON
 
-- [ ] Applicant: sees the resulting Criteria fields on the form
+- [x] Applicant: sees the resulting Countable fields on the form as Commitments and may submit these
 
-- [ ] Add "region" to application (N/S/E/W only)  - Show regions and "No Region" rollup
+- [ ] Applicant: sees the resulting Summable fields on the form as Commitments and may submit these
 
-- [ ] Applicant can (must) submit the extra form sections
+- [x] Compliance Reviewer: sees the supplied Countable Commitments in the Dashboard
+
+- [ ] Compliance Reviewer: sees the supplied Summable Commitments in the Dashboard
+
+- [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
 
 - [ ] Funding Delivery Designer: I can edit Guidance Notes
 
 - [ ] Applicant: I can see guidance notes for each Building Block
-
-- [ ] Funding Delivery Designer: I can add a summable value which a Compliance Reviewer sees in the list view
-
-- [ ] Compliance Reviewer - Summary level totals of summable value
-
-- [ ] Funding Delivery Designer: I can create a Building Block myself (STRETCH GOAL)
 
 
 ### Iceboxed
@@ -56,3 +54,4 @@ paint a picture of what is possible.
 
 - [ ] Application Assessor: I can approve an application; Applicant can see APPROVED
 
+- [ ] Funding Delivery Designer: I can create a Building Block myself (STRETCH GOAL)
