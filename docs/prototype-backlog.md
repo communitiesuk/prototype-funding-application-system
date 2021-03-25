@@ -40,15 +40,13 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Compliance Reviewer: sees the supplied Summable Commitments in the Dashboard
 
-- [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
-
 - [x] Funding Delivery Designer: I can edit Guidance Notes
 
 - [x] Applicant: I can see guidance notes for each Commitment
 
-- [ ] Tidy up the Application form
+- [x] Tidy up the Application form
 
-- [ ] Apply at least some basic styling to the UI app and the Dashboard
+- [x] Apply at least some basic styling to the UI app and the Dashboard
 
 ### Iceboxed
 
@@ -60,3 +58,5 @@ paint a picture of what is possible.
 - [ ] Application Assessor: I can approve an application; Applicant can see APPROVED
 
 - [ ] Funding Delivery Designer: I can create a Criterion myself (STRETCH GOAL)
+
+- [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
