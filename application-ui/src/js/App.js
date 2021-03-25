@@ -29,6 +29,7 @@ const App = () => {
     const form = e.target
     const title = form.title.value
     submitNewApplication(fund.url, title)
+    setFundApplyingFor(null)
   }
 
   useEffect(() => {
