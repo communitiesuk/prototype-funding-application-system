@@ -27,6 +27,12 @@ class ApplicationsDashboardView(TemplateView):
     template_name = "applications_service/applications_dashboard.html"
 
     def get_context_data(self, **kwargs):
+        applications = (
+            Application.objects.all()
+            .prefetch_related("fund")
+            .prefetch_related("countable_commitments")
+            .prefetch_related("summable_commitments")
+        )
         # Don't get confused here with the fact we Sum our countables as well
         # as our summables :)
         countables_summary = CountableCriterion.objects.values("label").annotate(
@@ -38,7 +44,7 @@ class ApplicationsDashboardView(TemplateView):
         )
 
         return {
-            "applications": Application.objects.all().prefetch_related("fund"),
+            "applications": applications,
             "countables_summary": countables_summary,
             "summables_summary": summables_summary,
         }

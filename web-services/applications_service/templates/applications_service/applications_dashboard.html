@@ -5,6 +5,7 @@
     td {
       padding: 6px 10px;
     }
+
     .total {
       font-weight: bold;
       font-size: 1.2em;
@@ -16,12 +17,12 @@
 <h2>Applications Dashboard</h2>
 <h3>Summary of Commitments</h3>
 <ul>
-{% for countable in countables_summary %}
+  {% for countable in countables_summary %}
   <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
-{% endfor %}
-{% for summable in summables_summary %}
+  {% endfor %}
+  {% for summable in summables_summary %}
   <li>{{summable.label}}: <span class="total">{{summable.total|floatformat:"0"}}</span> {{summable.unit}}</li>
-{% endfor %}
+  {% endfor %}
 </ul>
 
 <h3>List of Applications</h3>
@@ -31,6 +32,7 @@
     <th>Application</th>
     <th>Fund</th>
     <th>Submitted</th>
+    <th>Commitments</th>
   </tr>
   </thead>
   <tbody>
@@ -39,6 +41,15 @@
     <td>{{application.title}}</td>
     <td>{{application.fund.name}}</td>
     <td>{{application.submitted_at|date:"d/m/Y H:i"}}</td>
+    <td>
+      {% for commitment in application.countable_commitments.all %}
+        {{commitment.criterion.label}}: {{commitment.committed_quantity|floatformat:"0"}}.
+      {% endfor %}
+      {% for commitment in application.summable_commitments.all %}
+        {{commitment.criterion.label}}:
+        {{commitment.committed_quantity|floatformat:"0"}} {{commitment.criterion.unit}}.
+      {% endfor %}
+    </td>
   </tr>
   {% endfor %}
   </tbody>
