@@ -6,13 +6,13 @@ from funds_service.models import CountableCriterion, SummableCriterion, Fund
 class CountableCriterionSerializer(serializers.ModelSerializer):
     class Meta:
         model = CountableCriterion
-        fields = ["id", "label"]
+        fields = ["id", "label", "guidance_notes"]
 
 
 class SummableCriterionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SummableCriterion
-        fields = ["id", "label", "unit"]
+        fields = ["id", "label", "unit", "guidance_notes"]
 
 
 class FundSerializer(serializers.HyperlinkedModelSerializer):

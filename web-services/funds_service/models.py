@@ -34,6 +34,12 @@ class CountableCriterion(models.Model):
     label = models.CharField(
         max_length=255, help_text='Plural name of the criterion (e.g. "Rail routes")'
     )
+    guidance_notes = models.TextField(
+        help_text=(
+            "Provide information to assist the applicant in "
+            "understanding the correct interpretation of this commitment"
+        )
+    )
 
     class Meta:
         ordering = ["label"]
@@ -53,6 +59,12 @@ class SummableCriterion(models.Model):
     )
     label = models.CharField(
         max_length=255, help_text='Singular name of the criterion (e.g. "Floorspace")'
+    )
+    guidance_notes = models.TextField(
+        help_text=(
+            "Provide information to assist the applicant in "
+            "understanding the correct interpretation of this commitment"
+        )
     )
     unit = models.CharField(
         max_length=255, help_text='The unit of measurement (e.g. "m2")'

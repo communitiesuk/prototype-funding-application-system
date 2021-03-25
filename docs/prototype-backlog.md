@@ -40,10 +40,13 @@ Once completed the checkbox next to the item will be checked.
 
 - [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
 
-- [ ] Funding Delivery Designer: I can edit Guidance Notes
+- [x] Funding Delivery Designer: I can edit Guidance Notes
 
-- [ ] Applicant: I can see guidance notes for each Building Block
+- [x] Applicant: I can see guidance notes for each Commitment
 
+- [ ] Tidy up the Application form
+
+- [ ] Apply at least some basic styling to the UI app and the Dashboard
 
 ### Iceboxed
 
