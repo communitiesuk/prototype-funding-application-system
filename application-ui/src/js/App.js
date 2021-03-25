@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import {ApplicationForm} from "./ApplicationForm";
 import {ApplicationsList} from "./ApplicationsList";
-import {FundsList} from "./FundList";
+import {FundChooser} from "./FundChooser";
 
 const App = () => {
   const [applications, setApplications] = useState([])
@@ -69,7 +69,7 @@ const App = () => {
       {fundApplyingFor ?
         <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> :
         <>
-          <FundsList funds={funds} onFundSelection={setFundApplyingFor}/>
+          <FundChooser funds={funds} onFundSelection={setFundApplyingFor}/>
           <ApplicationsList applications={applications} funds={funds}/>
         </>}
     </>
