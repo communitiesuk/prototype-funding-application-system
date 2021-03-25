@@ -128,8 +128,9 @@ If you want to be a Funding Delivery Designer, go here: <http://localhost:8000/a
 
 If you want to be a Fund Applicant, go here: <http://localhost:8080>.
 
-Note that this is "tested" only in Chrome on Mac and Safari. In other browsers you may not be able to run this
-part of the prototype.
+BEWARE: Note that this is "tested" only in Safari and Chrome on Mac. In other browsers you may not be able
+to run this part of the prototype. For example in FIREFOX submitted Applications "lose" their Commitment
+values.
 
 #### Compliance Reviewer
 
