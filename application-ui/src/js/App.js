@@ -74,6 +74,7 @@ const App = () => {
             <td>
               <button onClick={() => setFundApplyingFor(fund)}>Start</button>
             </td>
+            <td>{fund.long_description}</td>
           </tr>
         ))}
         </tbody>

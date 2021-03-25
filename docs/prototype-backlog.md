@@ -26,6 +26,8 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Compliance Reviewer: For each Application in the Dashboard I can see its Commitments on the line
 
+- [x] Funding Delivery Designer: I can write some helpful short description of the Fund
+
 - [ ] Applicant: I can search for the right Form using the longform description provided by the Funding Delivery Designer
 
 - [x] Funding Delivery Designer: I can pick from 2 types of Criteria for each Fund; reflected in Funds JSON

@@ -7,6 +7,13 @@ class Fund(models.Model):
         max_length=255,
         help_text="Give a short description, shown to the Applicant in the choice list",
     )
+    long_description = models.TextField(
+        help_text=(
+            "Provide a more detailed explanation of this Fund and its purpose, some details of its commitment "
+            "criteria, etc. Bear in mind the potential Applicant will be searching against this content so be sure "
+            "to include helpful keywords."
+        )
+    )
 
     class Meta:
         ordering = ["name"]
