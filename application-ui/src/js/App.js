@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import {ApplicationForm} from "./ApplicationForm";
 import {ApplicationsList} from "./ApplicationsList";
+import {FundsList} from "./FundList";
 
 const App = () => {
   const [applications, setApplications] = useState([])
@@ -65,20 +66,9 @@ const App = () => {
 
       <h2>Submit a new Application</h2>
       <h3>Step One: Select appropriate Fund</h3>
-      <table>
-        <tbody>
-        {funds.map((fund, idx) => (
-          <tr key={idx}>
-            <td>{fund.name}</td>
-            <td>{fund.short_description}</td>
-            <td>
-              <button onClick={() => setFundApplyingFor(fund)}>Start</button>
-            </td>
-            <td>{fund.long_description}</td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+
+      <FundsList funds={funds} onFundSelection={setFundApplyingFor}/>
+
       {fundApplyingFor ?
         <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
 
