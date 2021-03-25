@@ -57,4 +57,4 @@ paint a picture of what is possible.
 
 - [ ] Application Assessor: I can approve an application; Applicant can see APPROVED
 
-- [ ] Funding Delivery Designer: I can create a Building Block myself (STRETCH GOAL)
+- [ ] Funding Delivery Designer: I can create a Criterion myself (STRETCH GOAL)
