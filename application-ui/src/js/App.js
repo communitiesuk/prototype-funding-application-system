@@ -45,15 +45,6 @@ const App = () => {
     <>
       <h1>Prototype Funding Application System</h1>
 
-      <h2>List of Funds</h2>
-      <ul>
-        {funds.map((fund, idx) => (
-          <li key={idx}>
-            {fund.name}
-          </li>)
-        )}
-      </ul>
-
       <h2>Submit a new Application</h2>
       <h3>Step One: Select appropriate Fund</h3>
       <table>
