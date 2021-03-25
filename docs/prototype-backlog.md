@@ -28,7 +28,9 @@ Once completed the checkbox next to the item will be checked.
 
 - [ ] Compliance Reviewer: I see a breakdown of Applications by type
 
-- [ ] Funding Delivery Designer: I can pick from 3 types of Building Block for each “application type”; Applicant sees these in form
+- [x] Funding Delivery Designer: I can pick from 2 types of Criteria for each Fund; reflected in Funds JSON
+
+- [ ] Applicant: sees the resulting Criteria fields on the form
 
 - [ ] Add "region" to application (N/S/E/W only)  - Show regions and "No Region" rollup
 
