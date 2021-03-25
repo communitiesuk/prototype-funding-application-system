@@ -65,14 +65,13 @@ const App = () => {
       <h1>Prototype Funding Application System</h1>
 
       <h2>Submit a new Application</h2>
-      <h3>Step One: Select appropriate Fund</h3>
-
-      <FundsList funds={funds} onFundSelection={setFundApplyingFor}/>
 
       {fundApplyingFor ?
-        <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> : ""}
-
-      <ApplicationsList applications={applications} funds={funds}/>
+        <ApplicationForm fund={fundApplyingFor} handleSubmission={handleApplicationFormSubmission}/> :
+        <>
+          <FundsList funds={funds} onFundSelection={setFundApplyingFor}/>
+          <ApplicationsList applications={applications} funds={funds}/>
+        </>}
     </>
   )
 }
