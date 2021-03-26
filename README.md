@@ -47,8 +47,8 @@ as much of the surface of the problem areas as possible whilst deliberately avoi
 Thus in this first iteration we have simply marked the actions of 3 roles of user. No
 attempt is made to represent the real world in any truly authentic fashion.
 
-The next iteration might be to include some steps for Assistance and Approval, but again
-at a similarly "dumb" level.
+The next iteration might be to include some steps for Assistance, Approval, and
+ Programme Management but again at a similarly "dumb" level.
 
 Only when the whole ground is mapped in this thin veneer should we consider enriching any
 part of it.
