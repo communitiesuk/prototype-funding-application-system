@@ -3,12 +3,36 @@
 ## Assumption(s) under test / Raisons d'être
 
 That we can develop a flexible and future-ready workflow process by basing our application 
-forms around reusable block-level components which MHCLG pick from at time of Fund Formulation.
-Such blocks would then underpin all processes of:
+forms around generic, basic block-level components. These would enable Funding Delivery
+Designers to describe complex application requirements using simple building blocks.
 
-* Approval
-* Reporting
-* Assurance
+The aim then is to show that with properly organised workflow roles, even simple building
+blocks can yield reporting outputs and dashboard features pretty much "for free".
+
+We achieve this end by putting firm separation between all the component services and
+objects, which leads to the desired "cleanliness of design" out of which naturally falls
+sane and low-friction reporting capabilities. (If you want to see this separation in
+diagrammatic form then check the [Technical Architecture doc](docs/technical-architecture.md).)
+
+## Roles
+
+This first-iteration prototype services three of the several roles in the real domain:
+
+1. Funding Delivery Designer - Provide an interface for them to express different funds,
+their purposes and their criteria of appliction / submission.
+
+2. Fund Applicant - Provide an interface for them to locate appropriate funds and to apply
+for these, completing all the stipulated criteria.
+
+3. Compliance Reviewer - Provide an interface, or "Dashboard", for them to see in real time
+the totals of the various criteria in all applications.
+
+## Obvious omissions
+
+No attempt is made to address Applicant Assistance, Application Approval, or Programme
+Management activities. That would be a great place to start a second iteration.
+
+## Why this prototype is deliberately obtuse in its references to the real world
 
 The FSD project domain is complex and there is an enormous amount of contextual
 complexity already available in research findings and Discovery activities.
@@ -17,15 +41,39 @@ While this is invaluable in terms of informing the accuracy of solutions, it
 is not possible to start a complex software project by consulting complex domain
 information.
 
-What's required is for some form of technical strategist (in this case a TA)
-to ingest and understand this complex problem domain and then be able to
-simplify those complexities far enough to start building out simple
-prototypes. These simple prototypes will then form the basis of early iterations
+What's required to start development is a very simple initial iteration which covers
+as much of the surface of the problem areas as possible whilst deliberately avoiding depth.
+
+Thus in this first iteration we have simply marked the actions of 3 roles of user. No
+attempt is made to represent the real world in any truly authentic fashion.
+
+The next iteration might be to include some steps for Assistance and Approval, but again
+at a similarly "dumb" level.
+
+Only when the whole ground is mapped in this thin veneer should we consider enriching any
+part of it.
+
+Repeat for every level of complexity. Cover the whole ground first before going deeper
+on any section.
+
+## Artefacts
+
+This repo can be inspected by developers of later phases in order to understand the
+logical representations of some of the real-world situations. In many ways the
+working code in here is a form of "living" documentation which when combined
+with the granular version control log will show future developers assumptions and
+lessons we learned on the way.
+
+## Again, simplicity
+
+It bears repeating: We have to start software simply. That simple software needs to
+be based on a mass distillation of the complex problem domain, simplified far enough
+to start building out a simple prototype such as this.
+
+These simple prototypes will then form the basis of early iterations
 of the software, iterations which when they grow in complexity will map
 back painlessly into the complex solution domain demanded by the complex
 problem domain.
-
-Hence this prototype.
 
 ## CAVEAT
 This will be prototype code. It's untested. Do not deploy it into the public.
