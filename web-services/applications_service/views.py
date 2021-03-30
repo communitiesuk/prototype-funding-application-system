@@ -1,4 +1,8 @@
+import csv
+
 from django.db.models import Max, Sum
+from django.http import HttpResponse
+from django.views import View
 from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 
@@ -48,3 +52,29 @@ class ApplicationsDashboardView(TemplateView):
             "countables_summary": countables_summary,
             "summables_summary": summables_summary,
         }
+
+
+class ApplicationsCsvDownloadView(View):
+    """
+    Serve a CSV representing the Applications
+    """
+
+    def get(self, request):
+        fieldnames_application = ["Fund", "Title", "Submitted"]
+
+        response = HttpResponse(content_type="text/csv")
+        response["Content-Disposition"] = 'attachment; filename="AllApplications.csv"'
+
+        writer = csv.DictWriter(response, fieldnames=fieldnames_application)
+        writer.writeheader()
+
+        for application in Application.objects.all():
+            writer.writerow(
+                {
+                    "Fund": application.fund.name,
+                    "Title": application.title,
+                    "Submitted": application.submitted_at,
+                }
+            )
+
+        return response
