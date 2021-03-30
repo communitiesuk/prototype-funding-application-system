@@ -3,15 +3,29 @@ from funds_service.models import CountableCriterion, Fund, SummableCriterion
 
 
 class CountableCriterionAdmin(admin.ModelAdmin):
+    fields = [
+        "output_category",
+        "label",
+        "guidance_notes",
+    ]
+
     list_display = [
         "label",
+        "output_category",
     ]
 
 
 class SummableCriterionAdmin(admin.ModelAdmin):
+    fields = [
+        "output_category",
+        "label",
+        "unit",
+        "guidance_notes",
+    ]
     list_display = [
         "label",
         "unit",
+        "output_category",
     ]
 
 
