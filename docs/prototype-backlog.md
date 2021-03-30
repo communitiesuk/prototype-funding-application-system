@@ -50,9 +50,9 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] "Commitments" are "Outputs"
 
-- [ ] Funding Delivery Designer: I can create a Criterion (with guidance notes)
+- [x] Funding Delivery Designer: I can create a Criterion by itself without reference to a Fund
 
-- [ ] Funding Delivery Designer: I can compose a Fund's criteria out of a selection of existing criteria
+- [x] Funding Delivery Designer: I can compose a Fund's criteria out of a selection of existing criteria
 
 - [ ] Funding Delivery Designer: I must pick a two-level category for each Criterion
 
@@ -61,6 +61,10 @@ Once completed the checkbox next to the item will be checked.
 - [ ] Compliance Reviewer: I can download a flattened CSV of Applications on the Dashboard
 
 - [ ] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
+
+- [ ] Clean down dev data and create some meaningful demo fixtures
+
+- [ ] Add ERD to the architecture docs
 
 
 ### Iceboxed
