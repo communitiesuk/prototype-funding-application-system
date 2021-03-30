@@ -48,6 +48,21 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Apply at least some basic styling to the UI app and the Dashboard
 
+- [ ] "Commitments" are "Outputs"
+
+- [ ] Funding Delivery Designer: I can create a Criterion (with guidance notes)
+
+- [ ] Funding Delivery Designer: I can compose a Fund's criteria out of a selection of existing criteria
+
+- [ ] Funding Delivery Designer: I must pick a two-level category for each Criterion
+
+- [ ] Applicant: The "CAT 1 - CAT 2: Criterion" lists appear in the FundChooser table
+
+- [ ] Compliance Reviewer: I can download a flattened CSV of Applications on the Dashboard
+
+- [ ] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
+
+
 ### Iceboxed
 
 These are stories which we do not expect to deliver but which are worthy of inclusion to help
@@ -56,7 +71,5 @@ paint a picture of what is possible.
 - [ ] Application Assessor: I can reject an application
 
 - [ ] Application Assessor: I can approve an application; Applicant can see APPROVED
-
-- [ ] Funding Delivery Designer: I can create a Criterion myself (STRETCH GOAL)
 
 - [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it
