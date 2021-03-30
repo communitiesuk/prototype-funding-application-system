@@ -1,19 +1,45 @@
 from django.db import models
 
 
-class CountableCriterion(models.Model):
+class BaseCriterion(models.Model):
     """
-    Additional Fund element which captures a criterion which can be counted to be totalled.
+    Base class for Criteria.
     """
 
-    label = models.CharField(
-        max_length=255, help_text='Plural name of the criterion (e.g. "Rail routes")'
+    class Meta:
+        abstract = True
+
+    # Output Category is two-tier but we represent as a flattened list for
+    # prototype reasons
+    OUTPUT_CATEGORIES = [
+        "Transport - Rail",
+        "Transport - Road",
+        "Transport - Cycleways",
+        "Transport - Pedestrian path",
+        "Skills & Education - Floorspace",
+        "Skills & Education - Students & learners",
+        "Connectivity - Public spaces",
+        "Connectivity - Homes",
+    ]
+
+    output_category = models.TextField(
+        max_length=255, choices=zip(OUTPUT_CATEGORIES, OUTPUT_CATEGORIES)
     )
     guidance_notes = models.TextField(
         help_text=(
             "Provide information to assist the applicant in "
             "understanding the correct interpretation of this output"
         )
+    )
+
+
+class CountableCriterion(BaseCriterion):
+    """
+    Additional Fund element which captures a criterion which can be counted to be totalled.
+    """
+
+    label = models.CharField(
+        max_length=255, help_text='Plural name of the criterion (e.g. "Rail routes")'
     )
 
     class Meta:
@@ -24,19 +50,13 @@ class CountableCriterion(models.Model):
         return f"{self.label}"
 
 
-class SummableCriterion(models.Model):
+class SummableCriterion(BaseCriterion):
     """
     Additional Fund element which captures a criterion which can be summed to be totalled.
     """
 
     label = models.CharField(
         max_length=255, help_text='Singular name of the criterion (e.g. "Floorspace")'
-    )
-    guidance_notes = models.TextField(
-        help_text=(
-            "Provide information to assist the applicant in "
-            "understanding the correct interpretation of this output"
-        )
     )
     unit = models.CharField(
         max_length=255, help_text='The unit of measurement (e.g. "m2")'

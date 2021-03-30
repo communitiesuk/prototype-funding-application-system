@@ -54,7 +54,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Funding Delivery Designer: I can compose a Fund's criteria out of a selection of existing criteria
 
-- [ ] Funding Delivery Designer: I must pick a two-level category for each Criterion
+- [x] Funding Delivery Designer: I must pick a two-level category for each Criterion
 
 - [ ] Applicant: The "CAT 1 - CAT 2: Criterion" lists appear in the FundChooser table
 
