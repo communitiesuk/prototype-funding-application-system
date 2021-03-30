@@ -9,7 +9,7 @@ class Fund(models.Model):
     )
     long_description = models.TextField(
         help_text=(
-            "Provide a more detailed explanation of this Fund and its purpose, some details of its commitment "
+            "Provide a more detailed explanation of this Fund and its purpose, some details of its output "
             "criteria, etc. Bear in mind the potential Applicant will be searching against this content so be sure "
             "to include helpful keywords."
         )
@@ -44,7 +44,7 @@ class CountableCriterion(models.Model):
     guidance_notes = models.TextField(
         help_text=(
             "Provide information to assist the applicant in "
-            "understanding the correct interpretation of this commitment"
+            "understanding the correct interpretation of this output"
         )
     )
 
@@ -70,7 +70,7 @@ class SummableCriterion(models.Model):
     guidance_notes = models.TextField(
         help_text=(
             "Provide information to assist the applicant in "
-            "understanding the correct interpretation of this commitment"
+            "understanding the correct interpretation of this output"
         )
     )
     unit = models.CharField(

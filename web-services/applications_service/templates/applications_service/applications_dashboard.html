@@ -20,7 +20,7 @@
 <body>
 <h1>Prototype Funding Application System</h1>
 <h2>Applications Dashboard</h2>
-<h3>Summary of Commitments</h3>
+<h3>Summary of Outputs</h3>
 <ul>
   {% for countable in countables_summary %}
   <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
@@ -37,7 +37,7 @@
     <th>Application</th>
     <th>Fund</th>
     <th>Submitted</th>
-    <th>Commitments</th>
+    <th>Outputs</th>
   </tr>
   </thead>
   <tbody>
@@ -47,12 +47,12 @@
     <td>{{application.fund.name}}</td>
     <td>{{application.submitted_at|date:"d/m/Y H:i"}}</td>
     <td>
-      {% for commitment in application.countable_commitments.all %}
-        {{commitment.criterion.label}}: {{commitment.committed_quantity|floatformat:"0"}}.
+      {% for output in application.countable_outputs.all %}
+        {{output.criterion.label}}: {{output.committed_quantity|floatformat:"0"}}.
       {% endfor %}
-      {% for commitment in application.summable_commitments.all %}
-        {{commitment.criterion.label}}:
-        {{commitment.committed_quantity|floatformat:"0"}} {{commitment.criterion.unit}}.
+      {% for output in application.summable_outputs.all %}
+        {{output.criterion.label}}:
+        {{output.committed_quantity|floatformat:"0"}} {{output.criterion.unit}}.
       {% endfor %}
     </td>
   </tr>

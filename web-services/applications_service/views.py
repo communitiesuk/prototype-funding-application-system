@@ -30,16 +30,16 @@ class ApplicationsDashboardView(TemplateView):
         applications = (
             Application.objects.all()
             .prefetch_related("fund")
-            .prefetch_related("countable_commitments")
-            .prefetch_related("summable_commitments")
+            .prefetch_related("countable_outputs")
+            .prefetch_related("summable_outputs")
         )
         # Don't get confused here with the fact we Sum our countables as well
         # as our summables :)
         countables_summary = CountableCriterion.objects.values("label").annotate(
-            total=Sum("application_commitments__committed_quantity")
+            total=Sum("application_outputs__committed_quantity")
         )
         summables_summary = SummableCriterion.objects.values("label").annotate(
-            total=Sum("application_commitments__committed_quantity"),
+            total=Sum("application_outputs__committed_quantity"),
             unit=Max("unit"),
         )
 

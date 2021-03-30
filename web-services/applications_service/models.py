@@ -15,25 +15,25 @@ class Application(models.Model):
         return f"Application submitted at {self.submitted_at}"
 
 
-class CountableCommitment(models.Model):
+class CountableOutput(models.Model):
     application = models.ForeignKey(
-        Application, on_delete=models.CASCADE, related_name="countable_commitments"
+        Application, on_delete=models.CASCADE, related_name="countable_outputs"
     )
     criterion = models.ForeignKey(
         CountableCriterion,
         on_delete=models.CASCADE,
-        related_name="application_commitments",
+        related_name="application_outputs",
     )
     committed_quantity = models.FloatField()
 
 
-class SummableCommitment(models.Model):
+class SummableOutput(models.Model):
     application = models.ForeignKey(
-        Application, on_delete=models.CASCADE, related_name="summable_commitments"
+        Application, on_delete=models.CASCADE, related_name="summable_outputs"
     )
     criterion = models.ForeignKey(
         SummableCriterion,
         on_delete=models.CASCADE,
-        related_name="application_commitments",
+        related_name="application_outputs",
     )
     committed_quantity = models.FloatField()

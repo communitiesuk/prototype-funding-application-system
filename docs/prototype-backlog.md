@@ -48,7 +48,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Apply at least some basic styling to the UI app and the Dashboard
 
-- [ ] "Commitments" are "Outputs"
+- [x] "Commitments" are "Outputs"
 
 - [ ] Funding Delivery Designer: I can create a Criterion (with guidance notes)
 

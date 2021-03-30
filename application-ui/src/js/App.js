@@ -10,14 +10,14 @@ const App = () => {
   const [applications, setApplications] = useState([])
   const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
-  const submitNewApplication = (fundUrl, title, countableCommitments, summableCommitments) => {
+  const submitNewApplication = (fundUrl, title, countableOutputs, summableOutputs) => {
     // TODO side effect: refactor
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
       {
         fund: fundUrl,
-        countable_commitments: countableCommitments,
-        summable_commitments: summableCommitments,
+        countable_outputs: countableOutputs,
+        summable_outputs: summableOutputs,
         title,
       })
       .then(({data}) => {
@@ -33,20 +33,20 @@ const App = () => {
     const form = e.target
     const title = form.title.value
 
-    const countableCommitments = []
-    const summableCommitments = []
+    const countableOutputs = []
+    const summableOutputs = []
     for (let elementName in form.elements) {
       const match = elementName.match(/(count|summ)able_(\d+)/)
       if (match) {
         const value = form.elements[elementName].value
-        const commitmentArray = match[1] === "count" ? countableCommitments : summableCommitments
-        commitmentArray.push({
+        const outputArray = match[1] === "count" ? countableOutputs : summableOutputs
+        outputArray.push({
           criterion: match[2],
           committed_quantity: value
         })
       }
     }
-    submitNewApplication(fund.url, title, countableCommitments, summableCommitments)
+    submitNewApplication(fund.url, title, countableOutputs, summableOutputs)
     setFundApplyingFor(null)
   }
 

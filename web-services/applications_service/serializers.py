@@ -2,26 +2,26 @@ from rest_framework import serializers
 
 from applications_service.models import (
     Application,
-    CountableCommitment,
-    SummableCommitment,
+    CountableOutput,
+    SummableOutput,
 )
 
 
-class CountableCommitmentSerializer(serializers.ModelSerializer):
+class CountableOutputSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CountableCommitment
+        model = CountableOutput
         fields = ["criterion", "committed_quantity"]
 
 
-class SummableCommitmentSerializer(serializers.ModelSerializer):
+class SummableOutputSerializer(serializers.ModelSerializer):
     class Meta:
-        model = SummableCommitment
+        model = SummableOutput
         fields = ["criterion", "committed_quantity"]
 
 
 class ApplicationSerializer(serializers.HyperlinkedModelSerializer):
-    countable_commitments = CountableCommitmentSerializer(many=True)
-    summable_commitments = SummableCommitmentSerializer(many=True)
+    countable_outputs = CountableOutputSerializer(many=True)
+    summable_outputs = SummableOutputSerializer(many=True)
 
     class Meta:
         model = Application
@@ -30,24 +30,20 @@ class ApplicationSerializer(serializers.HyperlinkedModelSerializer):
             "fund",
             "title",
             "submitted_at",
-            "countable_commitments",
-            "summable_commitments",
+            "countable_outputs",
+            "summable_outputs",
         ]
 
     def create(self, validated_data):
-        countable_commitment_data = validated_data.pop("countable_commitments")
-        summable_commitment_data = validated_data.pop("summable_commitments")
+        countable_output_data = validated_data.pop("countable_outputs")
+        summable_output_data = validated_data.pop("summable_outputs")
 
         application = Application.objects.create(**validated_data)
 
-        for commitment_data in countable_commitment_data:
-            CountableCommitment.objects.create(
-                application=application, **commitment_data
-            )
+        for output_data in countable_output_data:
+            CountableOutput.objects.create(application=application, **output_data)
 
-        for commitment_data in summable_commitment_data:
-            SummableCommitment.objects.create(
-                application=application, **commitment_data
-            )
+        for output_data in summable_output_data:
+            SummableOutput.objects.create(application=application, **output_data)
 
         return application
