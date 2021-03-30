@@ -58,7 +58,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Applicant: The Fund Output Categories lists appear in the FundChooser table
 
-- [ ] Applicant: The Fund Output Categories lists appear in the Application Form
+- [x] Applicant: The Fund Output Categories lists appear in the Application Form
 
 - [ ] Compliance Reviewer: I can download a flattened CSV of Applications on the Dashboard
 

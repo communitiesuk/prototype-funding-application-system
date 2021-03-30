@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {OutputsFormSection} from "./OutputsFormSection";
+
 export const ApplicationForm = ({fund, handleSubmission}) => {
   return (
     <>
@@ -14,22 +16,10 @@ export const ApplicationForm = ({fund, handleSubmission}) => {
           <label>Application Title</label>: <input name="title"/>
         </div>
         <h3>Outputs</h3>
-        {fund.countable_criteria.map((crit) => (
-          <div key={crit.id}>
-            <label>{crit.label}</label>: <input name={`countable_${crit.id}`}/>
-            <p className="guidance">
-              {crit.guidance_notes}
-            </p>
-          </div>
-        ))}
-        {fund.summable_criteria.map((crit) => (
-          <div key={crit.id}>
-            <label>{crit.label}</label>: <input name={`summable_${crit.id}`}/><span>{crit.unit}</span>
-            <p className="guidance">
-              {crit.guidance_notes}
-            </p>
-          </div>
-        ))}
+        <OutputsFormSection
+          countableFundCriteria={fund.countable_criteria}
+          summableFundCriteria={fund.summable_criteria}
+        />
         <div>
           <input type="submit" value="Submit Application"/>
         </div>
