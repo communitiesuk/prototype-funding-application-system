@@ -6,7 +6,7 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 
-from applications_service.models import Application
+from applications_service.models import Application, CountableOutput
 from applications_service.serializers import ApplicationSerializer
 from funds_service.models import CountableCriterion, SummableCriterion
 
@@ -62,19 +62,32 @@ class ApplicationsCsvDownloadView(View):
     def get(self, request):
         fieldnames_application = ["Fund", "Title", "Submitted"]
 
+        countable_criteria_labels = [c.label for c in CountableCriterion.objects.all()]
+
+        csv_fieldnames = fieldnames_application + countable_criteria_labels
+
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = 'attachment; filename="AllApplications.csv"'
 
-        writer = csv.DictWriter(response, fieldnames=fieldnames_application)
+        writer = csv.DictWriter(response, fieldnames=csv_fieldnames)
         writer.writeheader()
 
-        for application in Application.objects.all():
-            writer.writerow(
-                {
-                    "Fund": application.fund.name,
-                    "Title": application.title,
-                    "Submitted": application.submitted_at,
-                }
-            )
+        applications = Application.objects.all().prefetch_related("countable_outputs")
+
+        for application in applications:
+            row_data = {
+                "Fund": application.fund.name,
+                "Title": application.title,
+                "Submitted": application.submitted_at,
+            }
+            # TODO: Optimise for performance; this is just a prototype with small data sets
+            for label in countable_criteria_labels:
+                try:
+                    output = application.countable_outputs.get(criterion__label=label)
+                    row_data[label] = output.committed_quantity
+                except CountableOutput.DoesNotExist:
+                    # Applications will not have an output of every kind
+                    pass
+            writer.writerow(row_data)
 
         return response
