@@ -43,7 +43,7 @@ class CountableCriterion(BaseCriterion):
     )
 
     class Meta:
-        ordering = ["label"]
+        ordering = ["output_category", "label"]
         verbose_name_plural = "Countable criteria"
 
     def __str__(self):
@@ -63,7 +63,7 @@ class SummableCriterion(BaseCriterion):
     )
 
     class Meta:
-        ordering = ["label"]
+        ordering = ["output_category", "label"]
         verbose_name_plural = "Summable criteria"
 
     def __str__(self):

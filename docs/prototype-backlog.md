@@ -56,7 +56,9 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Funding Delivery Designer: I must pick a two-level category for each Criterion
 
-- [ ] Applicant: The "CAT 1 - CAT 2: Criterion" lists appear in the FundChooser table
+- [x] Applicant: The Fund Output Categories lists appear in the FundChooser table
+
+- [ ] Applicant: The Fund Output Categories lists appear in the Application Form
 
 - [ ] Compliance Reviewer: I can download a flattened CSV of Applications on the Dashboard
 
@@ -65,6 +67,8 @@ Once completed the checkbox next to the item will be checked.
 - [ ] Clean down dev data and create some meaningful demo fixtures
 
 - [ ] Add ERD to the architecture docs
+
+- [ ] Fix column widths in FundChooser table
 
 
 ### Iceboxed
