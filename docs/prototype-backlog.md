@@ -66,7 +66,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Compliance Reviewer: The CSV download includes columns for Summable outputs
 
-- [ ] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
+- [x] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
 
 - [ ] Clean down dev data and create some meaningful demo fixtures
 
@@ -74,6 +74,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [ ] Fix column widths in FundChooser table
 
+- [ ] Refactor as annotated in TODOs
 
 ### Iceboxed
 

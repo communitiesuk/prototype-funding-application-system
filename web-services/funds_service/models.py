@@ -32,6 +32,13 @@ class BaseCriterion(models.Model):
         )
     )
 
+    @property
+    def output_category_hier(self):
+        """
+        Return a tuple of the 2 levels of each Output Category.
+        """
+        return tuple(self.output_category.split(" - "))
+
 
 class CountableCriterion(BaseCriterion):
     """

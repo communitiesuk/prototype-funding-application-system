@@ -21,6 +21,17 @@
 <h1>Prototype Funding Application System</h1>
 <h2>Applications Dashboard</h2>
 <h3>Summary of Outputs</h3>
+
+{% for level_1_category, level_2_dict in dashboard_summary.items %}
+  <h4>{{level_1_category}}</h4>
+  {% for level_2_category, outputs_dict in level_2_dict.items %}
+    <h5>{{level_2_category}}</h5>
+    {% for label, total in outputs_dict.items %}
+      {{label}}: {{total|floatformat:"0"}}
+    {% endfor %}
+
+  {% endfor %}
+{% endfor %}
 <ul>
   {% for countable in countables_summary %}
   <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
