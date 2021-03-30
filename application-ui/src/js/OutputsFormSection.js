@@ -2,16 +2,18 @@ import React from 'react'
 
 const CategorySection = ({category, criteria}) => (
   <>
-    <h4>{category}</h4>
-    {criteria.map((crit) => (
-      <div key={crit.id}>
-        <label>{crit.label}</label>: <input name={`${crit.type}_${crit.id}`}/> {crit.unit ?
-        <span>{crit.unit}</span> : ""}
-        <p className="guidance">
-          {crit.guidance_notes}
-        </p>
-      </div>
-    ))}
+    <div className={"application-output-category"}>
+      <h4>{category}</h4>
+      {criteria.map((crit) => (
+        <div key={crit.id}>
+          <label>{crit.label}</label>: <input name={`${crit.type}_${crit.id}`}/> {crit.unit ?
+          <span>{crit.unit}</span> : ""}
+          <p className="guidance">
+            {crit.guidance_notes}
+          </p>
+        </div>
+      ))}
+    </div>
   </>
 )
 
