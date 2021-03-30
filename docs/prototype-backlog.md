@@ -64,7 +64,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Compliance Reviewer: The CSV download includes columns for Countable outputs
 
-- [ ] Compliance Reviewer: The CSV download includes columns for Summable outputs
+- [x] Compliance Reviewer: The CSV download includes columns for Summable outputs
 
 - [ ] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
 

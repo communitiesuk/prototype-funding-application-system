@@ -6,7 +6,7 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 
-from applications_service.models import Application, CountableOutput
+from applications_service.models import Application, CountableOutput, SummableOutput
 from applications_service.serializers import ApplicationSerializer
 from funds_service.models import CountableCriterion, SummableCriterion
 
@@ -63,8 +63,15 @@ class ApplicationsCsvDownloadView(View):
         fieldnames_application = ["Fund", "Title", "Submitted"]
 
         countable_criteria_labels = [c.label for c in CountableCriterion.objects.all()]
+        summable_criteria_meta = [
+            (c.label, c.unit) for c in SummableCriterion.objects.all()
+        ]
 
-        csv_fieldnames = fieldnames_application + countable_criteria_labels
+        csv_fieldnames = (
+            fieldnames_application
+            + countable_criteria_labels
+            + [f"{label} ({unit})" for (label, unit) in summable_criteria_meta]
+        )
 
         response = HttpResponse(content_type="text/csv")
         response["Content-Disposition"] = 'attachment; filename="AllApplications.csv"'
@@ -80,12 +87,20 @@ class ApplicationsCsvDownloadView(View):
                 "Title": application.title,
                 "Submitted": application.submitted_at,
             }
+            # TODO: Refactor these repetitive loops
             # TODO: Optimise for performance; this is just a prototype with small data sets
             for label in countable_criteria_labels:
                 try:
                     output = application.countable_outputs.get(criterion__label=label)
                     row_data[label] = output.committed_quantity
                 except CountableOutput.DoesNotExist:
+                    # Applications will not have an output of every kind
+                    pass
+            for (label, unit) in summable_criteria_meta:
+                try:
+                    output = application.summable_outputs.get(criterion__label=label)
+                    row_data[f"{label} ({unit})"] = output.committed_quantity
+                except SummableOutput.DoesNotExist:
                     # Applications will not have an output of every kind
                     pass
             writer.writerow(row_data)
