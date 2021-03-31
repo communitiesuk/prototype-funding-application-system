@@ -21,30 +21,17 @@ const CategorySection = ({category, criteria}) => (
 export const OutputsFormSection = ({countableFundCriteria, summableFundCriteria}) => {
   const categorisedCriteria = {}
 
-  // TODO - refactor these 2 repetitive loops
-  for (let i in countableFundCriteria) {
-    const criterion = countableFundCriteria[i]
+  const allCriteria = countableFundCriteria.concat(summableFundCriteria)
+
+  for (let i in allCriteria) {
+    const criterion = allCriteria[i]
     const category = criterion.output_category
 
     if (!(category in categorisedCriteria)) {
       categorisedCriteria[category] = []
     }
     const typedCriterion = {
-      type: 'countable',
-      ...criterion
-    }
-    categorisedCriteria[category].push(typedCriterion)
-  }
-
-  for (let i in summableFundCriteria) {
-    const criterion = summableFundCriteria[i]
-    const category = criterion.output_category
-
-    if (!(category in categorisedCriteria)) {
-      categorisedCriteria[category] = []
-    }
-    const typedCriterion = {
-      type: 'summable',
+      type: 'unit' in criterion ? 'summable' : 'countable',
       ...criterion
     }
     categorisedCriteria[category].push(typedCriterion)
