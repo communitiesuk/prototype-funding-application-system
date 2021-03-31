@@ -8,10 +8,17 @@ import {FundChooser} from "./FundChooser";
 
 const App = () => {
   const [applications, setApplications] = useState([])
+  const [applicationSubmission, setApplicationSubmission] = useState({})
   const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
-  const submitNewApplication = (fundUrl, title, countableOutputs, summableOutputs) => {
-    // TODO side effect: refactor
+
+  useEffect(() => {
+    const {fundUrl, title, countableOutputs, summableOutputs} = applicationSubmission
+
+    if (! fundUrl) {  // initial state, return
+      return
+    }
+
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
       {
@@ -22,8 +29,11 @@ const App = () => {
       })
       .then(({data}) => {
         addApplication(data)
+        // Clear the Application form
+        setFundApplyingFor(null)
       })
-  }
+  }, [applicationSubmission])
+
   const addApplication = (newApplication) => {
     setApplications([newApplication].concat(applications))
   }
@@ -46,8 +56,12 @@ const App = () => {
         })
       }
     }
-    submitNewApplication(fund.url, title, countableOutputs, summableOutputs)
-    setFundApplyingFor(null)
+    setApplicationSubmission({
+      fundUrl: fund.url,
+      title,
+      countableOutputs,
+      summableOutputs,
+    })
   }
 
   useEffect(() => {
