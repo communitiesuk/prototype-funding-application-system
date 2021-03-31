@@ -7,16 +7,13 @@ export const FundChooser = ({funds, onFundSelection}) => {
   const [searchResults, setSearchResults] = useState([])
 
   const handleSearchInputChange = (e) => {
-    setSearchInput(e.target.value)
-  }
-
-  useEffect(() => {
+    const searchInput = e.target.value
     if (searchInput.length < 2) {
       setSearchResults([])
       return
     }
     setSearchResults(funds.filter(fund => fund.long_description.includes(searchInput)))
-  }, [searchInput])
+  }
 
   return (
     <>
