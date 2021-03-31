@@ -113,7 +113,6 @@ class ApplicationsCsvDownloadView(View):
                 "Title": application.title,
                 "Submitted": application.submitted_at,
             }
-            # TODO: Refactor these repetitive loops
             # TODO: Optimise for performance; this is just a prototype with small data sets
             for label in countable_criteria_labels:
                 try:

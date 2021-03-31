@@ -74,7 +74,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Add ERD to the architecture docs
 
-- [ ] Refactor as annotated in TODOs
+- [x] Refactor as annotated in TODOs
 
 ### Iceboxed
 
