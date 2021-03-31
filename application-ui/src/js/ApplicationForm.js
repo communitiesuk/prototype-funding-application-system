@@ -1,10 +1,13 @@
 import React from 'react'
 
+import {OutputsFormSection} from "./OutputsFormSection";
+
 export const ApplicationForm = ({fund, handleSubmission}) => {
   return (
     <>
       <h3>Step Two: Complete application form</h3>
-      <form onSubmit={(e) => handleSubmission(e, fund)}>
+      <form onSubmit={handleSubmission}>
+        <input type={"hidden"} name={"fundUrl"} value={fund.url}/>
         <div>
           <p>
           Fund: {fund.name}
@@ -13,23 +16,11 @@ export const ApplicationForm = ({fund, handleSubmission}) => {
         <div>
           <label>Application Title</label>: <input name="title"/>
         </div>
-        <h3>Commitments</h3>
-        {fund.countable_criteria.map((crit) => (
-          <div key={crit.id}>
-            <label>{crit.label}</label>: <input name={`countable_${crit.id}`}/>
-            <p className="guidance">
-              {crit.guidance_notes}
-            </p>
-          </div>
-        ))}
-        {fund.summable_criteria.map((crit) => (
-          <div key={crit.id}>
-            <label>{crit.label}</label>: <input name={`summable_${crit.id}`}/><span>{crit.unit}</span>
-            <p className="guidance">
-              {crit.guidance_notes}
-            </p>
-          </div>
-        ))}
+        <h3>Outputs</h3>
+        <OutputsFormSection
+          countableFundCriteria={fund.countable_criteria}
+          summableFundCriteria={fund.summable_criteria}
+        />
         <div>
           <input type="submit" value="Submit Application"/>
         </div>

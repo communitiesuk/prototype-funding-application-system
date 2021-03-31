@@ -48,6 +48,34 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Apply at least some basic styling to the UI app and the Dashboard
 
+- [x] "Commitments" are "Outputs"
+
+- [x] Funding Delivery Designer: I can create a Criterion by itself without reference to a Fund
+
+- [x] Funding Delivery Designer: I can compose a Fund's criteria out of a selection of existing criteria
+
+- [x] Funding Delivery Designer: I must pick a two-level category for each Criterion
+
+- [x] Applicant: The Fund Output Categories lists appear in the FundChooser table
+
+- [x] Applicant: The Fund Output Categories lists appear in the Application Form
+
+- [x] Compliance Reviewer: I can download a flattened CSV of Applications on the Dashboard
+
+- [x] Compliance Reviewer: The CSV download includes columns for Countable outputs
+
+- [x] Compliance Reviewer: The CSV download includes columns for Summable outputs
+
+- [x] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
+
+- [x] Clean down dev data and create some meaningful demo fixtures: Criteria and Funds
+
+- [x] Get some "outcomes" text in the Fund definition
+
+- [x] Add ERD to the architecture docs
+
+- [x] Refactor as annotated in TODOs
+
 ### Iceboxed
 
 These are stories which we do not expect to deliver but which are worthy of inclusion to help
@@ -56,7 +84,5 @@ paint a picture of what is possible.
 - [ ] Application Assessor: I can reject an application
 
 - [ ] Application Assessor: I can approve an application; Applicant can see APPROVED
-
-- [ ] Funding Delivery Designer: I can create a Criterion myself (STRETCH GOAL)
 
 - [ ] Compliance Reviewer: clicking a Commitment Summary shows me the Applications which constitute it

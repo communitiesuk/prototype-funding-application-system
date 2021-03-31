@@ -156,6 +156,18 @@ and follow the instructions (it is a very short process).
 
 The project is now ready.
 
+#### 5. (OPTIONAL) Load demo data
+
+There is a small amount of "life-like" demo data ready for import to assist in the setup of
+a decent demo environment. It includes some realistic Criteria (which the Applicant then sees
+as Outcomes to be completed) and some example Funds which use those Criteria.
+
+If you want to load this into the db you prepped in the above steps, then it's:
+
+```shell script
+$ docker-compose run webservices ./manage.py loaddata demo_funds
+```
+
 ### Start the dev server
 
 ```shell script
@@ -177,7 +189,7 @@ If you want to be a Funding Delivery Designer, go here: <http://localhost:8000/a
 If you want to be a Fund Applicant, go here: <http://localhost:8080>.
 
 BEWARE: Note that this is "tested" only in Safari and Chrome on Mac. In other browsers you may not be able
-to run this part of the prototype. For example in FIREFOX submitted Applications "lose" their Commitment
+to run this part of the prototype. For example in FIREFOX submitted Applications "lose" their Output
 values.
 
 #### Compliance Reviewer

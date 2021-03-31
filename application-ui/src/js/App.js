@@ -8,46 +8,60 @@ import {FundChooser} from "./FundChooser";
 
 const App = () => {
   const [applications, setApplications] = useState([])
+  const [applicationSubmission, setApplicationSubmission] = useState({})
   const [fundApplyingFor, setFundApplyingFor] = useState(null)
   const [funds, setFunds] = useState([])
-  const submitNewApplication = (fundUrl, title, countableCommitments, summableCommitments) => {
-    // TODO side effect: refactor
+
+  useEffect(() => {
+    const {fundUrl, title, countableOutputs, summableOutputs} = applicationSubmission
+
+    if (! fundUrl) {  // initial state, return
+      return
+    }
+
     axios.post(
       `${API_HOST}/applications_service/api/applications/`,
       {
         fund: fundUrl,
-        countable_commitments: countableCommitments,
-        summable_commitments: summableCommitments,
+        countable_outputs: countableOutputs,
+        summable_outputs: summableOutputs,
         title,
       })
       .then(({data}) => {
         addApplication(data)
+        // Clear the Application form
+        setFundApplyingFor(null)
       })
-  }
+  }, [applicationSubmission])
+
   const addApplication = (newApplication) => {
     setApplications([newApplication].concat(applications))
   }
 
-  const handleApplicationFormSubmission = (e, fund) => {
+  const handleApplicationFormSubmission = (e) => {
     e.preventDefault()
     const form = e.target
     const title = form.title.value
 
-    const countableCommitments = []
-    const summableCommitments = []
+    const countableOutputs = []
+    const summableOutputs = []
     for (let elementName in form.elements) {
       const match = elementName.match(/(count|summ)able_(\d+)/)
       if (match) {
         const value = form.elements[elementName].value
-        const commitmentArray = match[1] === "count" ? countableCommitments : summableCommitments
-        commitmentArray.push({
+        const outputArray = match[1] === "count" ? countableOutputs : summableOutputs
+        outputArray.push({
           criterion: match[2],
           committed_quantity: value
         })
       }
     }
-    submitNewApplication(fund.url, title, countableCommitments, summableCommitments)
-    setFundApplyingFor(null)
+    setApplicationSubmission({
+      fundUrl: form.elements['fundUrl'].value,
+      title,
+      countableOutputs,
+      summableOutputs,
+    })
   }
 
   useEffect(() => {
