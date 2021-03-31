@@ -69,3 +69,13 @@ Some analysis of the needs and a review of the tools available has led to the
 following choices for Containers and Services within this prototype:
 
 ![Containers - prototype Funding Application System](Containers%20-%20prototype%20Funding%20Application%20System.png)
+
+## Database Design
+
+As at release v1.1 (see tag v1.1) the operation of the prototype is underpinned by the following
+database structure:
+
+![ERD for v1.1 database](Proto%20Fund%20Application%20v1.1%20ERD.png)
+
+That is not to say that this structure should be copied verbatim in any future phases, rather that
+this diagram is intended to explain the problem domain to future developers.

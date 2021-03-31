@@ -72,9 +72,7 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Get some "outcomes" text in the Fund definition
 
-- [ ] Add ERD to the architecture docs
-
-- [ ] Fix column widths in FundChooser table
+- [x] Add ERD to the architecture docs
 
 - [ ] Refactor as annotated in TODOs
 
