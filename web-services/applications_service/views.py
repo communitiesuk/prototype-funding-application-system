@@ -29,32 +29,43 @@ class ApplicationsDashboardView(TemplateView):
 
     template_name = "applications_service/applications_dashboard.html"
 
+    def _populate_dashboard_summary(self, summary, outputs):
+        """
+        Process the (Countable or Summable) outputs and add to the summary.
+        """
+        # TODO: Pretty certain this section could be simpler
+        for output in outputs:
+            (level_1_category, level_2_category) = output.criterion.output_category_hier
+
+            if level_1_category not in summary:
+                summary[level_1_category] = dict()
+
+            if level_2_category not in summary[level_1_category]:
+                summary[level_1_category][level_2_category] = dict()
+
+            label = output.criterion.label
+            unit = getattr(output.criterion, "unit", None)
+            if unit:
+                label += f" ({unit})"
+
+            if label not in summary[level_1_category][level_2_category]:
+                summary[level_1_category][level_2_category][label] = 0
+
+            summary[level_1_category][level_2_category][
+                label
+            ] += output.committed_quantity
+
     def get_context_data(self, **kwargs):
         dashboard_summary = dict()
 
-        countable_outputs = CountableOutput.objects.all().prefetch_related("criterion")
-
-        # TODO: Pretty certain this section could be simpler
-        for output in countable_outputs:
-            (level_1_category, level_2_category) = output.criterion.output_category_hier
-
-            if level_1_category not in dashboard_summary:
-                dashboard_summary[level_1_category] = dict()
-
-            if level_2_category not in dashboard_summary[level_1_category]:
-                dashboard_summary[level_1_category][level_2_category] = dict()
-
-            if (
-                output.criterion.label
-                not in dashboard_summary[level_1_category][level_2_category]
-            ):
-                dashboard_summary[level_1_category][level_2_category][
-                    output.criterion.label
-                ] = 0
-
-            dashboard_summary[level_1_category][level_2_category][
-                output.criterion.label
-            ] += output.committed_quantity
+        self._populate_dashboard_summary(
+            dashboard_summary,
+            CountableOutput.objects.all().prefetch_related("criterion"),
+        )
+        self._populate_dashboard_summary(
+            dashboard_summary,
+            SummableOutput.objects.all().prefetch_related("criterion"),
+        )
 
         applications = (
             Application.objects.all()
