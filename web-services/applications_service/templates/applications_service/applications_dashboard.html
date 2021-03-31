@@ -32,14 +32,6 @@
 
   {% endfor %}
 {% endfor %}
-<ul>
-  {% for countable in countables_summary %}
-  <li>{{countable.label}}: <span class="total">{{countable.total|floatformat:"0"}}</span></li>
-  {% endfor %}
-  {% for summable in summables_summary %}
-  <li>{{summable.label}}: <span class="total">{{summable.total|floatformat:"0"}}</span> {{summable.unit}}</li>
-  {% endfor %}
-</ul>
 
 <h3>List of Applications</h3>
 <p>
