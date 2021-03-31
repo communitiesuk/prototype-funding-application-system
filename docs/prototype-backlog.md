@@ -68,7 +68,9 @@ Once completed the checkbox next to the item will be checked.
 
 - [x] Compliance Reviewer: The Dashboard shows the Applications in the 2-stage hierarchy
 
-- [ ] Clean down dev data and create some meaningful demo fixtures
+- [x] Clean down dev data and create some meaningful demo fixtures: Criteria and Funds
+
+- [x] Get some "outcomes" text in the Fund definition
 
 - [ ] Add ERD to the architecture docs
 

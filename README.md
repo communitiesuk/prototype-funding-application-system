@@ -156,6 +156,18 @@ and follow the instructions (it is a very short process).
 
 The project is now ready.
 
+#### 5. (OPTIONAL) Load demo data
+
+There is a small amount of "life-like" demo data ready for import to assist in the setup of
+a decent demo environment. It includes some realistic Criteria (which the Applicant then sees
+as Outcomes to be completed) and some example Funds which use those Criteria.
+
+If you want to load this into the db you prepped in the above steps, then it's:
+
+```shell script
+$ docker-compose run webservices ./manage.py loaddata demo_funds
+```
+
 ### Start the dev server
 
 ```shell script
