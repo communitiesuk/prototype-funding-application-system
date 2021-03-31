@@ -6,7 +6,8 @@ export const ApplicationForm = ({fund, handleSubmission}) => {
   return (
     <>
       <h3>Step Two: Complete application form</h3>
-      <form onSubmit={(e) => handleSubmission(e, fund)}>
+      <form onSubmit={handleSubmission}>
+        <input type={"hidden"} name={"fundUrl"} value={fund.url}/>
         <div>
           <p>
           Fund: {fund.name}

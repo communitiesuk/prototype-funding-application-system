@@ -38,7 +38,7 @@ const App = () => {
     setApplications([newApplication].concat(applications))
   }
 
-  const handleApplicationFormSubmission = (e, fund) => {
+  const handleApplicationFormSubmission = (e) => {
     e.preventDefault()
     const form = e.target
     const title = form.title.value
@@ -57,7 +57,7 @@ const App = () => {
       }
     }
     setApplicationSubmission({
-      fundUrl: fund.url,
+      fundUrl: form.elements['fundUrl'].value,
       title,
       countableOutputs,
       summableOutputs,
